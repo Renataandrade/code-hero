@@ -1,0 +1,14 @@
+.list {
+    font-weight: 700;
+    color: var(--color-text-dark);
+
+    &__title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        padding-top: 24px;
+    }
+}
