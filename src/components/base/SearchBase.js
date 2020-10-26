@@ -1,20 +1,25 @@
 import React from 'react';
 
-import '../../assets/styles/components/_search-base.scss';
 import SearchSVG from '../../assets/images/search.svg';
 
 const SearchBase = () => {
   return (
     <div className="search">
-      <input
-        type="text" 
-        name="search"
-        placeholder="Search" 
-      />
+      <p className="search__title">
+        Nome do personagem
+      </p>
 
-      <span className="search__icon">
-        <img src={SearchSVG} />
-      </span>
+      <div className="search__group">
+        <input
+          type="text" 
+          name="search"
+          placeholder="Search" 
+        />
+
+        <span className="search__icon">
+          <img src={SearchSVG} />
+        </span>
+      </div>
     </div>
   )
 }
