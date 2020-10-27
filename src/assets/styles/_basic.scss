@@ -97,3 +97,7 @@ main {
     margin-top: 28px;
     text-align: center;
 }
+
+@import './components/pagination';
+@import './pages/list-character';
+@import './pages/detail-character';

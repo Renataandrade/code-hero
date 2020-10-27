@@ -14,7 +14,7 @@ const Header = () => {
 			<div className="header__description">
 				<div className="header__description--right">
 					<p className="header__description-title">
-						Nome do candidato
+						Renata Andrade
 					</p>
 					<span>
 						Teste de Front-end
