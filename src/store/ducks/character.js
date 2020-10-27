@@ -12,19 +12,21 @@ export const initialState = {
 	details: {
 		name: '',
 		description: '',
-		thumbnail: {},
-		comics: [],
-		series: [],
-		events: []
-	}
+		thumbnail: {}
+	},
+	comics: [],
+	series: [],
+	events: []
 };
 
 // Types
 export const types = {
 	GET_ALL_CHARACTER: "[Character] Get All",
 	GET_CHARACTER: "[Character] Get by Id",
+	GET_CHARACTER_COMICS: "[Character] Get comics",
 	LOAD_ALL_CHARACTER: "[Character] Load All",
 	LOAD_CHARACTER: "[Character] Load by Id",
+	LOAD_CHARACTER_COMICS: "[Character] Load Comics",
 	NOT_LOADED: "[Character] Request Not Finished"
 }
 
@@ -54,6 +56,21 @@ export const reducer = (state = initialState, action) => {
 					thumbnail: res.thumbnail
 				}
 			};
+		case types.LOAD_CHARACTER_COMICS:
+			let comics = action.payload;
+			comics = comics.data.results;
+
+			const newComics = comics.map(v => {
+				return {
+					title: v.title,
+					images: v.images[0]
+				}
+			})
+			
+			return { 
+				...state, 
+				comics: newComics
+			};
 
 		case types.NOT_LOADED:
 			return { ...state, isLoaded: false };
@@ -73,12 +90,20 @@ export const actions = {
 		type: types.GET_CHARACTER, 
 		payload: character 
 	}),
+	getComicsByCharacter: character => ({ 
+		type: types.GET_CHARACTER_COMICS, 
+		payload: character 
+	}),
 	fetchAllCharacter: character => ({ 
 		type: types.LOAD_ALL_CHARACTER, 
 		payload: character 
 	}),
 	fetchCharacterById: character => ({ 
 		type: types.LOAD_CHARACTER, 
+		payload: character 
+	}),
+	fetchComicsByCharacter: character => ({ 
+		type: types.LOAD_CHARACTER_COMICS, 
 		payload: character 
 	}),
 	isLoaded: character => ({ 
@@ -108,8 +133,20 @@ export function* saga() {
 		const id = yield action.payload;
 
 		try {  
-			const { data } = yield services.getById(id);
+			let { data } = yield services.getById(id);
 			yield put(actions.fetchCharacterById(data));
+		} catch (error) {
+			console.log(error)
+		}
+	});
+	yield takeLatest(types.GET_CHARACTER_COMICS, function* getCharacter(action) {
+		const id = yield action.payload;
+
+		try {  
+			let { data } = yield services.getComicsByCharacter(id)
+			console.log(data)
+			yield put(actions.fetchComicsByCharacter(data));
+
 		} catch (error) {
 			console.log(error)
 		}

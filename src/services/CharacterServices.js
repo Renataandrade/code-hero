@@ -9,7 +9,12 @@ const getById = (id) => {
     return ApiServices.get(`${EndPoint.CHARACTERS}/${id}`);
 }
 
+const getComicsByCharacter = (id) => {
+    return ApiServices.get(`${EndPoint.CHARACTERS}/${id}/${EndPoint.COMICS}`);
+}
+
 export const CharacterServices = {
     getAll,
-    getById
+    getById,
+    getComicsByCharacter
 };
