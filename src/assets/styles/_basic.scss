@@ -105,7 +105,11 @@ main {
     }
 }
 
+// Componentes
 @import './components/pagination';
 @import './components/card-base';
+@import './components/search-base';
+
+// Páginas
 @import './pages/list-character';
 @import './pages/detail-character';
