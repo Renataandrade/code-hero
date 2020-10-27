@@ -88,6 +88,10 @@
 		
 		.detail {
 			&__carosel {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(4, 50vh);
+
 				.carosel {
 					height: 45vh;
 				}

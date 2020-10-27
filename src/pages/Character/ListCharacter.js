@@ -44,20 +44,22 @@ const ListCharacter = (props) => {
 			<SearchBase filter={filter} />
 
       {/* Listagem de Personagem */}
+      <div className="list__items" >
       {(() => {
         return (isLoaded) ? (
           (results.length > 0 ? results : characters.results).map((v, i) => {
             return (
-              <div className="list__item" key={i}>
-                <CardBase character={v} />
+              <div className="list__item" >
+                <CardBase character={v} key={i}/>
               </div>
             )
           })
         ) : ('...carregando')
       })()}
+      </div>
 
       {/* Pagination */}
-      <div className="list__footer">
+      <div className="list__pagination">
         <Pagination page={page} setPage={setPage} total={total} />
       </div>
     </main>

@@ -10,13 +10,17 @@
 		font-size: 24px;
 		text-align: center;
 	}
-
+  
+  &__items {
+    margin-bottom: 15vh;
+  }
+  
 	&__item {
 		display: flex;
 		justify-content: center;
 	}
 
-	&__footer {
+	&__pagination {
 		width: 100vw;
 		height: 90px;
 		
@@ -26,7 +30,7 @@
 
 		background: var(--color-primary);
 		
-  	}
+  }
   
   @media (min-width: 1140px) {
     
@@ -38,7 +42,7 @@
     &__description-title {
       margin-left: 113px;
       text-align: justify;
-	}
+	  }
   }
 }
 
