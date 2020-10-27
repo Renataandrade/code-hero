@@ -28,7 +28,8 @@
 		position: fixed;
 
 		background: var(--color-primary);
-  }
+		
+  	}
   
   @media (min-width: 1140px) {
     
@@ -75,7 +76,7 @@
 
 	&__column-character {
 		display: flex;
-    	align-items: center;
+		align-items: center;
 
 		font-weight: 700;
 		text-align: initial;

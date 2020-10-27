@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import '../../assets/styles/components/_pagination-table.scss';
-
-const PaginationTable = ({ total, page, setPage }) => {
+const Pagination = ({ total, page, setPage }) => {
 	let [columns, setColumns] = useState([1, 2, 3, 4, 5]);
 
 	let totalPages = parseInt(total / 10);
@@ -85,4 +83,4 @@ const PaginationTable = ({ total, page, setPage }) => {
 	)
 }
 
-export default PaginationTable;
+export default Pagination;

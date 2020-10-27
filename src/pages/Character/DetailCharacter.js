@@ -3,16 +3,13 @@ import React, { useEffect } from 'react';
 import { actions } from '../../store/ducks/character';
 import { connect } from 'react-redux';
 
-import '../../assets/styles/pages/_detail-character.scss';
-import { Carosel } from '../../components';
-
 const DetailCharacter = (props) => {
-  const { 
+  const {
     characters: { details, comics },
     characters: { details: { thumbnail } },
     getCharacterById,
     getComicsByCharacter,
-    match: { params } 
+    match: { params }
   } = props;
 
   useEffect(() => {
@@ -21,55 +18,53 @@ const DetailCharacter = (props) => {
 
   }, [getCharacterById, getComicsByCharacter, params])
 
-	return (
-		<main>
-      <div className="content-centered">
-        <div className="detail">
+  return (
+    <main className="main">
+      <div className="detail">
 
-          <div className="detail__header">
-            <img 
-              className="detail__header-photo" 
-              alt="Character" 
-              src={`${thumbnail.path}.${thumbnail.extension}`} 
-            />
+        <div className="detail__header">
+          <img
+            className="detail__header-photo"
+            alt="Character"
+            src={`${thumbnail.path}.${thumbnail.extension}`}
+          />
 
-            <h3 className="detail__header-title">
-              {details.name}
-            </h3>
-          </div>
-
-          <div className="detail__body">
-            <p className="detail__description">
-              {details.description}
-            </p>
-          </div>
+          <h3 className="detail__header-title">
+            {details.name}
+          </h3>
         </div>
 
-        <h4 className="detail__title">Comics</h4>
-        <div className="detail__carosel">
-          {(() => {
-            return (comics.length > 0) ? (
-              comics.map(v => {
-                return (
-                  (v.images) ? (
-                    <div className="carosel">
-                        <img 
-                            className="carosel__image" 
-                            alt={v.title} 
-                            src={`${v.images.path}.${v.images.extension}`} 
-                        />
-
-                      <p className="carosel__title">{v.title}</p>
-                    </div>
-                  ) : ('')
-                )
-              })
-            ) : ('...carregando')
-          })()}
+        <div className="detail__body">
+          <p className="detail__description">
+            {details.description}
+          </p>
         </div>
       </div>
-		</main>
-	)
+
+      <h4 className="detail__title">Comics</h4>
+      <div className="detail__carosel">
+        {(() => {
+          return (comics.length > 0) ? (
+            comics.map(v => {
+              return (
+                (v.images) ? (
+                  <div className="carosel">
+                    <img
+                      className="carosel__image"
+                      alt={v.title}
+                      src={`${v.images.path}.${v.images.extension}`}
+                    />
+
+                    <p className="carosel__title">{v.title}</p>
+                  </div>
+                ) : ('')
+              )
+            })
+          ) : ('...carregando')
+        })()}
+      </div>
+    </main>
+  )
 }
 
 export default connect(

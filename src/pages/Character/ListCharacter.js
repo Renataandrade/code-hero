@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { 
   CardBase, 
-  PaginationTable 
+  Pagination 
 } from '../../components';
 
-import '../../assets/styles/pages/_list-character.scss';
 import SearchBase from '../../components/base/SearchBase';
 
 import { actions } from '../../store/ducks/character';
@@ -57,7 +56,7 @@ const ListCharacter = (props) => {
 
       {/* Pagination */}
       <div className="list__footer">
-        <PaginationTable page={page} setPage={setPage} total={total} />
+        <Pagination page={page} setPage={setPage} total={total} />
       </div>
     </main>
   )
