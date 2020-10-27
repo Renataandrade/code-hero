@@ -2,10 +2,16 @@ import React from 'react';
 import Routes from './routes/routes';
 
 import './assets/styles/_basic.scss';
+import { Header } from './components';
+import { Provider } from 'react-redux';
 
-function App() {
+function App(props) {
+  const { store } = props;
   return (
-    <Routes />
+    <Provider store={store}>
+      <Header />
+      <Routes />
+    </Provider>
   );
 }
 
