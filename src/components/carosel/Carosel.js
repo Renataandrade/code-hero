@@ -6,7 +6,11 @@ import PhotoPNG from '../../assets/images/photo.png';
 const Carosel = () => {
     return (
         <div className="carosel">
-            <img className="carosel__image" src={PhotoPNG} />
+            <img 
+                className="carosel__image" 
+                alt="Carosel" 
+                src={PhotoPNG} 
+            />
 
             <p className="carosel__title"># Nome</p>
         </div>

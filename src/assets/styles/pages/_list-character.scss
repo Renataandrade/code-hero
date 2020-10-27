@@ -16,6 +16,10 @@
 		justify-content: center;
 	}
 
+	&__item:nth-child(11) { 
+		padding-bottom: 50px;
+	}
+
 	&__footer {
 		width: 100vw;
 		height: 90px;
@@ -71,9 +75,10 @@
 
 	&__column-character {
 		display: flex;
-    align-items: center;
+    	align-items: center;
 
 		font-weight: 700;
+		text-align: initial;
 	}
  
 	&__column-serie {
@@ -85,8 +90,8 @@
 	}
 
 	@media (min-width: 1140px) {
-    width: 100vw;
-    margin: 20px 119px 0px 119px;
+		width: 1140px;
+		margin: 20px 119px 0px 0px;
 
 		&__wrapper {
 			width: 100%;
@@ -94,6 +99,7 @@
 
 		&__column-serie {
 			display: block;
+			
 		}
 
 		&__column-event {
