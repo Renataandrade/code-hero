@@ -60,7 +60,11 @@ const DetailCharacter = (props) => {
                 ) : ('')
               )
             })
-          ) : ('...carregando')
+          ) : (
+            <div className="not-found">
+              <p>Não encontramos nenhum quadrinho no momento :(</p>
+            </div>
+          )
         })()}
       </div>
     </main>

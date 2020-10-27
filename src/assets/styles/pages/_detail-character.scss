@@ -80,6 +80,11 @@
                     padding-top: 10px;
                 }
             }
+
+            .not-found {
+                font-size: 14px;
+                color: var(--color-text-dark);
+            }
         }
     }
     @media (min-width: 1140px) {
@@ -90,10 +95,10 @@
 			&__carosel {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: repeat(4, 50vh);
+                grid-template-rows: repeat(4, 55vh);
 
 				.carosel {
-					height: 45vh;
+					height: 48vh;
 				}
 			}
 		}

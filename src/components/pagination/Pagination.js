@@ -6,9 +6,9 @@ const Pagination = ({ total, page, setPage }) => {
 	let totalPages = parseInt(total / 10);
 
 	useEffect(() => {
-		setColumns([page - 3, page - 2, page - 1, page]);
+		setColumns([page - 2, page - 1, page]);
 		if (page <= 5) {
-			 setColumns([1, 2, 3, 4]);
+			 setColumns([1, 2, 3]);
 		}
 	}, [page])
 
@@ -19,20 +19,20 @@ const Pagination = ({ total, page, setPage }) => {
 			{(() => {
 				if(page > 1) {
 					return(<>
-						<button 
+						<span 
 							type="button" 
 							className="pagination__number"
 							onClick={() => {
 								setPage(1)
 							}}
-						>{`<<`}</button>
-						<button 
+						>{`<<`}</span>
+						<span 
 							type="button" 
 							className="pagination__number"
 							onClick={() => {
 								setPage(page-1)
 							}}
-						>{`<`}</button>
+						>{`<`}</span>
 					</>)
 				}
 			})()}
@@ -42,7 +42,7 @@ const Pagination = ({ total, page, setPage }) => {
 			{(() => {
 				return columns.map(pageNumber => {
 					return (
-						<button
+						<span
 							type="button" 
 							key={pageNumber} 
 							className={`pagination__number ${pageNumber === page && 'pagination__number--active'}`}
@@ -51,7 +51,7 @@ const Pagination = ({ total, page, setPage }) => {
 							}}
 						>
 							{pageNumber}
-						</button>
+						</span>
 					)
 				});
 			})()}
@@ -60,22 +60,22 @@ const Pagination = ({ total, page, setPage }) => {
 			{(() => {
 				if(page < totalPages) {
 					return(<>
-						<button 
+						<span 
 							type="button" 
 							className="pagination__number"
 							onClick={() => {
 								setPage(page+1)
 							}}
 						>
-							>
-						</button>
-						<button 
+							{`>`}
+						</span>
+						<span 
 							type="button" 
 							className="pagination__number"
 							onClick={() => {
 								setPage(totalPages)
 							}}
-						>>></button>
+						>{`>>`}</span>
 					</>)
 				}
 			})()}
