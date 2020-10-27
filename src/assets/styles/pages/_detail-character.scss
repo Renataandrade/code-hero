@@ -63,7 +63,7 @@
 
             .carosel {
                 width: 200px;
-                height: 35vh;
+                height: 50vh;
                 
                 margin: 0px 10px 0px 10px;
                 padding: 10px;
@@ -84,6 +84,14 @@
     }
     @media (min-width: 1140px) {
         width: 85vw;
-        margin: 119px;
+		margin: 119px;
+		
+		.detail {
+			&__carosel {
+				.carosel {
+					height: 45vh;
+				}
+			}
+		}
     }
 }

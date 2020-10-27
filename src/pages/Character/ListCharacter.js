@@ -48,7 +48,9 @@ const ListCharacter = (props) => {
         return (isLoaded) ? (
           (results.length > 0 ? results : characters.results).map((v, i) => {
             return (
-              <CardBase character={v} />
+              <div className="list__item" key={i}>
+                <CardBase character={v} />
+              </div>
             )
           })
         ) : ('...carregando')

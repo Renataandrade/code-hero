@@ -8,7 +8,6 @@ const CardBase = ({ character }) => {
   const { path, extension } = thumbnail;
 
   return (
-    <div className="list__item" >
       <Link to={`/character/${character.id}`}>
         <div className="card">
           <div className="card__column-character">
@@ -29,7 +28,6 @@ const CardBase = ({ character }) => {
           </div>
       </div>
     </Link>
-  </div>
   )
 }
 
